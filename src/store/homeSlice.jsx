@@ -8,7 +8,7 @@ export const homeSlice = createSlice({
   },
   reducers: {
     getApiConfiguration: (state, action) => {
-      state.url = action.payload;
+      state.url = action.payload; 
     },
     getGenres: (state, action) => {
       state.genres = action.payload;
