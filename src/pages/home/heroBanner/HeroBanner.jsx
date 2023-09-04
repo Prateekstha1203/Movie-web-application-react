@@ -12,9 +12,18 @@ const HeroBanner = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { data, loading, error } = useFetch("/movie/upcoming");
-
   const { url } = useSelector((state) => state.home);
-  
+  // useEffect(() => {
+  //   if (url?.backdrop && data?.results) {
+  //     const bgURL =
+  //       url.backdrop +
+  //       data.results[Math.floor(Math.random() * data.results.length)]
+  //         .backdrop_path;
+  //     console.log("Background URL:", bgURL);
+  //     setBackground(bgURL);
+  //   }
+  // }, [data, loading, error, url]);
+
   useEffect(() => {
     if (url?.backdrop && data?.results) {
       const bgURL =
@@ -24,7 +33,7 @@ const HeroBanner = () => {
       console.log("Background URL:", bgURL);
       setBackground(bgURL);
     }
-  }, [data, loading, error, url]);
+  }, [url, data, loading, error]);
 
   const searchHandler = () => {
     if (query.length > 0) {

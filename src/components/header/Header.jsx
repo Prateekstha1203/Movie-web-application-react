@@ -18,9 +18,13 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  //when we change the page the scroll should be selected to 0 to start from top
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+
   const controlScroll = () => {
     if (window.scrollY > 200) {
       if (window.scrollY > lastScrollY && !mobileMenu) {
